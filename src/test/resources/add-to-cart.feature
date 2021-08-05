@@ -7,3 +7,4 @@ Feature: Adding a product to the cart
     And selects the first product with "PlayStation 5" in its name
     And adds that product to the cart
     Then the "PlayStation 5" should be in the cart
+
