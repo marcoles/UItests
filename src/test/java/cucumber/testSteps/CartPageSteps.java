@@ -3,6 +3,7 @@ package cucumber.testSteps;
 import cucumber.TestContext;
 import io.cucumber.java.en.Then;
 import cucumber.pageObjects.CartPage;
+import org.openqa.selenium.WebElement;
 
 public class CartPageSteps {
     private TestContext testContext;
@@ -12,9 +13,9 @@ public class CartPageSteps {
         this.testContext = context;
         this.cartPage = testContext.getPageObjectManager().getCartPage();
     }
-    @Then("the product should be in the cart")
-    public void the_product_should_be_in_the_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @Then("the {string} should be in the cart")
+    public void theShouldBeInTheCart(String product) {
+        cartPage.checkIfProductIsInTheCart(product);
     }
 }

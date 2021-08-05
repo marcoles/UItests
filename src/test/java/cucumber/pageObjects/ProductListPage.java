@@ -12,7 +12,7 @@ public class ProductListPage {
     }
 
     public void selectProduct(String productName) {
-        WebElement product = driver.findElement(By.xpath("//a[@title=\"" + productName + "\"]"));
+        WebElement product = driver.findElement(By.xpath(String.format("//a[contains(text(), \"%s\")]", productName)));
         product.click();
     }
 }

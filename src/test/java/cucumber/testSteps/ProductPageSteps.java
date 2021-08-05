@@ -1,8 +1,12 @@
 package cucumber.testSteps;
 
 import cucumber.TestContext;
+import cucumber.pageObjects.ConfirmationPage;
 import cucumber.pageObjects.ProductPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+
+import java.util.concurrent.TimeUnit;
 
 public class ProductPageSteps {
     private TestContext testContext;
@@ -12,9 +16,13 @@ public class ProductPageSteps {
         this.testContext = context;
         this.productPage = testContext.getPageObjectManager().getProductPage();
     }
-    @When("adds the product to the cart")
-    public void adds_the_product_to_the_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @And("adds that product to the cart")
+    public void addsThatProductToTheCart() {
+        productPage.addToCart();
+        productPage.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        ConfirmationPage confirmationPage = testContext.getPageObjectManager().getConfirmationPage();
+        confirmationPage.goToCart();
     }
 }
+

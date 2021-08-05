@@ -35,3 +35,4 @@ public class PageObjectManager {
         return (confirmationPage == null) ? confirmationPage = new ConfirmationPage(driver) : confirmationPage;
     }
 }
+

@@ -16,16 +16,18 @@ public class HomePageSteps {
     }
 
     @Given("User is on the home page {string}")
-    public void user_is_on_the_home_page(String string) {
-        MatcherAssert.assertThat(homePage);
+    public void userIsOnTheHomePage(String string) {
+        homePage.getDriver().get(string);
     }
+
     @Given("has cookies accepted")
     public void has_cookies_accepted() {
-
+        homePage.acceptCookies();
     }
-    @When("User searches for a PS5")
-    public void user_searches_for_a_ps5() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @When("User searches for a {string}")
+    public void userSearchesForAPS(String string) {
+        homePage.searchForItem(string);
     }
 }
+

@@ -15,9 +15,12 @@ public class HomePage {
     }
 
     public void searchForItem(String itemName) {
-        WebElement searchBox = driver.findElement(By.xpath("//input[@data-role=\"serach-input\"]"));
+        WebElement searchBox = driver.findElement(By.xpath("//input[@data-role=\"search-input\"]"));
         searchBox.sendKeys(itemName + Keys.ENTER);
     }
 
-    public void confirmUserIsOnTheHomePage(String homePageURL)
+    public void acceptCookies() {
+        WebElement acceptButton = driver.findElement(By.xpath("//button[contains(text(), \"Ok,\")]"));
+        acceptButton.click();
+    }
 }
